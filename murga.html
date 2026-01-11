@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Murga 🎂</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+    <style>
+/* ========================================
+   CUSTOM CURSOR STYLES
+======================================== */
+* {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    position: fixed;
+    font-size: 32px;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    animation: cursor-rotate 3s linear infinite;
+}
+
+.custom-cursor.clicked {
+    transform: translate(-50%, -50%) scale(1.5) rotate(20deg);
+}
+
+@keyframes cursor-rotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* ========================================
+   SCROLL PROGRESS BAR
+======================================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff006e, #fb5607, #ffbe0b, #8338ec, #3a86ff);
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+/* ========================================
+   INTENSE 3D SCROLL SECTIONS
+======================================== */
+.scroll-section {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-content {
+    transform-style: preserve-3d;
+}
+
+.scroll-item {
+    will-change: transform, opacity;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ========================================
+   CORE ANIMATIONS
+======================================== */
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+    0%, 100% { 
+        text-shadow: 0 0 20px #ff006e, 0 0 30px #ff006e, 0 0 40px #ff006e; 
+    }
+    50% { 
+        text-shadow: 0 0 40px #ff006e, 0 0 60px #ff006e, 0 0 80px #ff006e; 
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ========================================
+   ENHANCED SURPRISE MODAL ANIMATIONS
+======================================== */
+.surprise-modal-content {
+    animation: modalZoomRotate 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes modalZoomRotate {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.surprise-gift {
+    animation: giftBounce 0.8s ease-in-out 0.3s forwards, giftRotate 2s ease-in-out 1s infinite;
+    display: inline-block;
+}
+
+@keyframes giftBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-30px) scale(1.1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+    75% { transform: translateY(-30px) scale(1.1); }
+}
+
+@keyframes giftRotate {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.surprise-title {
+    animation: titlePulse 1s ease-in-out 0.5s infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { 
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% { 
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+}
+
+.surprise-text-content {
+    animation: textFadeIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.surprise-emojis span {
+    animation: emojiFloat 2s ease-in-out infinite;
+}
+
+@keyframes emojiFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-5deg); }
+}
+
+/* ========================================
+   MODAL FIREWORKS BACKGROUND
+======================================== */
+#modal-fireworks {
+    background: radial-gradient(circle at 30% 50%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(131, 56, 236, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 30%, rgba(251, 86, 7, 0.1) 0%, transparent 50%);
+    animation: fireworksPulse 3s ease-in-out infinite;
+}
+
+@keyframes fireworksPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ========================================
+   BORDER GRADIENT ANIMATION
+======================================== */
+.border-gradient {
+    animation: borderShift 3s linear infinite;
+}
+
+@keyframes borderShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* ========================================
+   UTILITY ANIMATIONS
+======================================== */
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   BODY AND GENERAL STYLES
+======================================== */
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   CONFETTI
+======================================== */
+.confetti-piece {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: -10px;
+    transform: rotate(45deg);
+}
+
+/* ========================================
+   PARTICLES
+======================================== */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ========================================
+   CLICK EFFECTS
+======================================== */
+.click-ripple {
+    position: fixed;
+    border-radius: 50%;
+    border: 3px solid;
+    pointer-events: none;
+    z-index: 9998;
+    animation: ripple 0.8s ease-out forwards;
+}
+
+@keyframes ripple {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    to {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+.click-emoji {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 9998;
+    animation: float-up 1.5s ease-out forwards;
+}
+
+@keyframes float-up {
+    from {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-150px) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   TILT CARDS
+======================================== */
+.tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+/* ========================================
+   SURPRISE BOX
+======================================== */
+.surprise-box {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.surprise-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.surprise-box:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.surprise-box:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 30px rgba(251, 86, 7, 0.6);
+}
+
+/* ========================================
+   FIREWORK ANIMATION
+======================================== */
+@keyframes firework {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty));
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   MEMORY CARDS ENHANCED
+======================================== */
+.memory-card {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.memory-card:hover {
+    transform: translateZ(30px) scale(1.05) rotateY(5deg);
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+======================================== */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff006e, #8338ec);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #fb5607, #3a86ff);
+}
+
+/* ========================================
+   RESPONSIVE SCROLL EFFECTS
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   LETTER SECTION STYLES
+======================================== */
+.letter-container {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.letter-container:hover {
+    box-shadow: 0 30px 80px rgba(139, 92, 246, 0.3);
+    transform: translateY(-5px);
+}
+
+.letter-text p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.letter-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+}
+
+/* ========================================
+   MUSIC PLAYER BUTTON
+======================================== */
+.music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #ff006e, #8338ec);
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(255, 0, 110, 0.4);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: musicPulse 2s ease-in-out infinite;
+}
+
+.music-toggle:hover {
+    transform: scale(1.15) rotate(15deg);
+    box-shadow: 0 12px 48px rgba(255, 0, 110, 0.6);
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+.music-icon {
+    width: 32px;
+    height: 32px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.music-icon.hidden {
+    display: none;
+}
+
+.music-waves {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.music-toggle.playing .music-waves {
+    opacity: 1;
+}
+
+.music-toggle.playing #play-icon {
+    display: none;
+}
+
+.music-toggle.playing #pause-icon {
+    display: block;
+}
+
+.music-waves span {
+    width: 4px;
+    height: 12px;
+    background: white;
+    border-radius: 2px;
+    animation: wave 1s ease-in-out infinite;
+}
+
+.music-waves span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.music-waves span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.music-waves span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        height: 8px;
+    }
+    50% {
+        height: 20px;
+    }
+}
+
+@keyframes musicPulse {
+    0%, 100% {
+        box-shadow: 0 8px 32px rgba(255, 0, 110, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 48px rgba(255, 0, 110, 0.7);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .music-toggle {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .music-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ========================================
+   LYRICS BOX STYLES
+======================================== */
+.lyrics-box {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    width: 400px;
+    max-height: 500px;
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(139, 92, 246, 0.2);
+    z-index: 9997;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: lyricsSlideIn 0.5s ease-out;
+}
+
+.lyrics-box.hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+@keyframes lyricsSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.lyrics-header {
+    background: linear-gradient(135deg, #8338ec, #ff006e);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.lyrics-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lyrics-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 28px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.lyrics-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.lyrics-content {
+    padding: 20px;
+    max-height: 420px;
+    overflow-y: auto;
+    color: #e5e7eb;
+    line-height: 1.8;
+}
+
+.lyrics-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lyrics-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.lyrics-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8338ec, #ff006e);
+    border-radius: 10px;
+}
+
+.lyrics-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #a855f7, #ff1a8c);
+}
+
+.lyrics-verse {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.lyrics-verse:hover {
+    border-left-color: #8338ec;
+    padding-left: 15px;
+}
+
+.lyrics-verse p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #d1d5db;
+}
+
+.lyrics-section {
+    font-size: 13px;
+    font-weight: 800;
+    color: #8338ec;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 24px 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(131, 56, 236, 0.3);
+}
+
+.lyrics-chorus p {
+    color: #fbbf24;
+    font-size: 16px;
+}
+
+.lyrics-bridge p {
+    color: #a78bfa;
+    font-style: italic;
+}
+
+.lyrics-outro {
+    text-align: center;
+    border-left: none !important;
+}
+
+.lyrics-outro p {
+    color: #60a5fa;
+}
+
+.lyrics-final {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 16px !important;
+}
+
+/* Floating animation for lyrics box */
+@keyframes lyricsFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.lyrics-box:not(.hidden) {
+    animation: lyricsFloat 3s ease-in-out infinite;
+}
+
+/* Mobile responsive for lyrics */
+@media (max-width: 768px) {
+    .lyrics-box {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+        bottom: 100px;
+        max-height: 400px;
+    }
+    
+    .lyrics-title {
+        font-size: 16px;
+    }
+    
+    .lyrics-verse p {
+        font-size: 14px;
+    }
+}
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor">🐔</div>
+
+    <!-- Click Effect Container -->
+    <div id="click-effects"></div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
+    
+    <!-- Particle Background -->
+    <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+    
+    <!-- Music Player Button -->
+    <button id="music-toggle" class="music-toggle" onclick="toggleMusic()" title="Play/Pause Birthday Music">
+        <svg id="play-icon" class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <svg id="pause-icon" class="music-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        </svg>
+        <div class="music-waves">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Lyrics Display Box -->
+    <div id="lyrics-box" class="lyrics-box hidden">
+        <div class="lyrics-header">
+            <h3 class="lyrics-title">🎵 Happy Birthday Murga 🎂</h3>
+            <button onclick="toggleLyrics()" class="lyrics-close">&times;</button>
+        </div>
+        <div class="lyrics-content" id="lyrics-content">
+            <div class="lyrics-verse">
+                <p>We were kids with loud laughs, zero plans</p>
+                <p>Crashing parties like we owned the land</p>
+                <p>Tihar nights, lights in the air</p>
+                <p>No invite, still everybody stared</p>
+            </div>
+
+            <div class="lyrics-verse">
+                <p>Drinks in hand, English slipping slow</p>
+                <p>"Why the building spinning, bro?"</p>
+                <p>Laugh till the sunrise, no regret</p>
+                <p>Those nights? Yeah, we ain't done yet</p>
+            </div>
+
+            <div class="lyrics-section">PRE-CHORUS</div>
+            <div class="lyrics-verse">
+                <p>From the streets back home</p>
+                <p>To roads unknown</p>
+                <p>Life got heavy, but you stayed strong</p>
+                <p>You carried the weight, kept moving on</p>
+            </div>
+
+            <div class="lyrics-section">CHORUS</div>
+            <div class="lyrics-verse lyrics-chorus">
+                <p><strong>Happy birthday, Murga, raise a glass tonight</strong></p>
+                <p><strong>From Nepal to the UK, yeah you earned that flight</strong></p>
+                <p><strong>Through the pain, through the grind, through the lonely days</strong></p>
+                <p><strong>You stayed real, you stayed you, in a thousand ways</strong></p>
+                <p><strong>Miles apart but the bond don't fade</strong></p>
+                <p><strong>Different places, same brotherhood stays</strong></p>
+                <p><strong>No matter where life drags ya</strong></p>
+                <p><strong>Murga stays Murga</strong></p>
+            </div>
+
+            <div class="lyrics-section">VERSE 2</div>
+            <div class="lyrics-verse">
+                <p>From skinny dreams to iron plates</p>
+                <p>Early mornings, discipline, no breaks</p>
+                <p>While others slept, you chose pain</p>
+                <p>Built your body, built your name</p>
+            </div>
+
+            <div class="lyrics-verse">
+                <p>Foreign land, foreign skies</p>
+                <p>Missing home but you never cried</p>
+                <p>Silent battles, heavy load</p>
+                <p>Still you walk your chosen road</p>
+            </div>
+
+            <div class="lyrics-section">PRE-CHORUS</div>
+            <div class="lyrics-verse">
+                <p>They don't see the nights</p>
+                <p>The mental fights</p>
+                <p>But we know the cost you paid</p>
+                <p>To become the man you made</p>
+            </div>
+
+            <div class="lyrics-section">CHORUS</div>
+            <div class="lyrics-verse lyrics-chorus">
+                <p><strong>Happy birthday, Murga, this one's for you</strong></p>
+                <p><strong>For every dark day that you pushed through</strong></p>
+                <p><strong>From laughter to struggle, from chaos to calm</strong></p>
+                <p><strong>You turned pressure into strength, fear into calm</strong></p>
+                <p><strong>Different country, same heart inside</strong></p>
+                <p><strong>Same brother who stood by my side</strong></p>
+                <p><strong>No matter where life drags ya</strong></p>
+                <p><strong>Murga stays Murga</strong></p>
+            </div>
+
+            <div class="lyrics-section">BRIDGE</div>
+            <div class="lyrics-verse lyrics-bridge">
+                <p><em>If it ever gets quiet</em></p>
+                <p><em>If the walls feel close</em></p>
+                <p><em>Remember the nights</em></p>
+                <p><em>We laughed the most</em></p>
+                <p><em>You're never alone</em></p>
+                <p><em>Even oceans can't break</em></p>
+                <p><em>The brotherhood</em></p>
+                <p><em>We built from mistakes</em></p>
+            </div>
+
+            <div class="lyrics-section">FINAL CHORUS</div>
+            <div class="lyrics-verse lyrics-chorus">
+                <p><strong>Happy birthday, Murga, look how far you came</strong></p>
+                <p><strong>Still humble, still hungry, still chasing your name</strong></p>
+                <p><strong>This is just the start, yeah we know your flow</strong></p>
+                <p><strong>You're built for more than the world will show</strong></p>
+                <p><strong>Raise your head, raise your dreams higher</strong></p>
+                <p><strong>You were born from fire, molded by fire</strong></p>
+                <p><strong>No matter where life drags ya</strong></p>
+                <p><strong>Murga stays Murga</strong></p>
+            </div>
+
+            <div class="lyrics-section">OUTRO</div>
+            <div class="lyrics-verse lyrics-outro">
+                <p>From your dearest friends</p>
+                <p>Across time and space</p>
+                <p>Proud of the man</p>
+                <p>You became today</p>
+                <p class="lyrics-final">Happy birthday, brother 🎂</p>
+                <p class="lyrics-final">This is only the beginning.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Audio Element -->
+    <audio id="birthday-music" loop>
+        <source src="birthdaysong.mp3" type="audio/mp3">
+    </audio>
+    
+    <!-- Surprise Sound Effect (plays once when surprise is revealed) -->
+    <audio id="surprise-sound">
+        <source src="Huawei ringtone Rooster - ViktorLoud2004.mp3" type="audio/mp3">
+    </audio>
+    
+    <!-- Click Sound Effect (water droplet sound) -->
+    <audio id="click-sound">
+        <source src="Water Drop Sound Effect (HD)  How to - How to.mp3" type="audio/mp3">
+    </audio>
+    
+    <!-- Surprise Modal -->
+    <div id="surprise-modal" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] hidden items-center justify-center overflow-hidden">
+        <div id="modal-fireworks" class="absolute inset-0"></div>
+        <div class="relative max-w-3xl mx-4 surprise-modal-content transform scale-0" id="modal-content">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 rounded-3xl blur-2xl opacity-50 animate-pulse"></div>
+            <div class="relative bg-gradient-to-br from-gray-900 to-purple-900 rounded-3xl p-16 border-4 border-gradient shadow-2xl">
+                <button onclick="closeSurprise()" class="absolute top-6 right-6 text-5xl text-white hover:text-yellow-400 transition-all hover:rotate-90 duration-300 z-10">&times;</button>
+                <div class="text-center space-y-8">
+                    <div class="text-9xl mb-6 surprise-gift">🎁</div>
+                    <h3 class="text-7xl font-black text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text animate-glow surprise-title">
+                        SURPRISE!
+                    </h3>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 blur-xl opacity-30"></div>
+                        <p class="relative text-3xl text-white font-bold leading-relaxed surprise-text-content" id="surprise-text"></p>
+                    </div>
+                    <div class="flex justify-center gap-4 text-6xl mt-8 surprise-emojis">
+                        <span class="inline-block animate-bounce">🎉</span>
+                        <span class="inline-block animate-bounce" style="animation-delay: 0.1s;">⭐</span>
+                        <span class="inline-block animate-bounce" style="animation-delay: 0.2s;">💫</span>
+                        <span class="inline-block animate-bounce" style="animation-delay: 0.3s;">✨</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex flex-col items-center justify-center relative px-4 scroll-section" data-section="0">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-pink-500 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="relative z-10 text-center space-y-8 scroll-content">
+            <div class="text-8xl mb-4 animate-float scroll-item" data-scroll-speed="0.5">🎂</div>
+            <h1 class="text-7xl md:text-9xl font-black mb-4 animate-glow scroll-item" data-scroll-speed="0.3">
+                HAPPY BIRTHDAY
+            </h1>
+            <h2 class="text-6xl md:text-8xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent scroll-item" data-scroll-speed="0.4">
+                MURGA
+            </h2>
+            <div class="flex items-center justify-center gap-3 text-2xl md:text-3xl font-light mt-8 scroll-item" data-scroll-speed="0.6">
+                <svg class="w-8 h-8 text-pink-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <p class="bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
+                    From your dearest friends — across miles, always close
+                </p>
+                <svg class="w-8 h-8 text-pink-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-lg mt-4 text-gray-400 scroll-item" data-scroll-speed="0.7">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Nepal → UK → Forever in our hearts</span>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 animate-bounce scroll-item" data-scroll-speed="0.8">
+            <div class="text-4xl">↓</div>
+        </div>
+    </section>
+
+    <!-- MEMORIES SECTION -->
+    <section class="min-h-screen py-20 px-4 relative scroll-section" data-section="1">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-6xl font-black text-center mb-16 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent scroll-item" data-scroll-speed="0.2">
+                THE LEGENDARY CHRONICLES
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Memory Card 1 -->
+                <div class="memory-card scroll-item tilt-card group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500" data-scroll-speed="0.3">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500"></div>
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <span class="text-3xl">🎉</span>
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">The Party Crash</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">Remember when we crashed that party during Tihar? No invitation, all audacity. We walked in like we owned the place, and somehow... we did. That night became legendary.</p>
+                </div>
+
+                <!-- Memory Card 2 -->
+                <div class="memory-card scroll-item tilt-card group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500" data-scroll-speed="0.4">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500"></div>
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <span class="text-3xl">✨</span>
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">Drunk English Chronicles</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">Your drunk English could win awards, Murga. 'Why the building is spinning?' Classic. We've laughed until our stomachs hurt at your philosophical drunk thoughts.</p>
+                </div>
+
+                <!-- Memory Card 3 -->
+                <div class="memory-card scroll-item tilt-card group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500" data-scroll-speed="0.5">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-500 opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500"></div>
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <span class="text-3xl">💪</span>
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">The Bodybuilding Journey</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">From skinny kid to absolute unit. Your dedication is unreal. Every rep, every meal, every sacrifice - you've built yourself into someone incredible.</p>
+                </div>
+
+                <!-- Memory Card 4 -->
+                <div class="memory-card scroll-item tilt-card group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl p-8 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500" data-scroll-speed="0.6">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500"></div>
+                    
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <span class="text-3xl">🌍</span>
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">Miles Apart, Hearts Together</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">UK might have you physically, but Nepal still has your heart. And we're right there with you, across the miles, always your brothers.</p>
+                </div>
+            </div>
+            
+            <!-- Hidden Surprise Button -->
+            <div class="mt-16 text-center scroll-item" data-scroll-speed="0.7">
+                <button onclick="revealSecret(1)" class="surprise-box px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full text-2xl font-bold text-white shadow-lg hover:shadow-2xl hover:shadow-yellow-500/50">
+                    🎁 Click for a Surprise!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section class="min-h-screen py-20 px-4 bg-black/30 scroll-section" data-section="2">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-item" data-scroll-speed="0.2">
+                <svg class="w-16 h-16 mx-auto mb-4 text-cyan-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <h2 class="text-6xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    MEMORY REEL
+                </h2>
+                <p class="text-2xl text-gray-400">Every photo tells a thousand stories</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6" id="photo-grid"></div>
+
+            <p class="text-center text-gray-500 mt-8 text-sm">
+                💡 Replace these placeholders with real photos by updating the image sources in the JavaScript
+            </p>
+        </div>
+    </section>
+
+    <!-- HEARTFELT LETTER SECTION -->
+    <section class="min-h-screen py-20 px-4 relative scroll-section flex items-center justify-center" data-section="3">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-float" style="animation-delay: 1.5s;"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12 scroll-item" data-scroll-speed="0.2">
+                <div class="text-6xl mb-6 animate-pulse">💌</div>
+                <h2 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    A Letter From Kalon
+                </h2>
+                <div class="flex items-center justify-center gap-2 text-gray-400">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span class="text-sm">Written with love from across the miles</span>
+                </div>
+            </div>
+
+            <div class="letter-container scroll-item group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-3xl p-12 md:p-16 backdrop-blur-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-700" data-scroll-speed="0.4">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-700"></div>
+                
+                <!-- Decorative Quote Mark -->
+                <div class="absolute top-8 left-8 text-purple-500/20 text-8xl font-serif">"</div>
+                
+                <div class="relative space-y-6 text-gray-200 text-lg md:text-xl leading-relaxed letter-text">
+                    <p class="first-letter:text-7xl first-letter:font-bold first-letter:text-purple-400 first-letter:mr-3 first-letter:float-left">
+                        Yo Murga, it's me... Kalon. Man, I don't even know where to start bro. Sitting here typing this and it's hitting different, you know?
+                    </p>
+
+                    <p>
+                        Remember when we used to do all that stupid stuff together? Like crashing parties we weren't invited to, roaming around up till late nights talking absolute nonsense, making plans we'd probably never follow through with? Those were the days man. I miss that. I miss YOU.
+                    </p>
+
+                    <p>
+                        Every time I see something ridiculous, I think "Murga would've loved this" or "Murga would've had the perfect dumb comment for this moment." It's not the same without you around bro.
+                    </p>
+
+                    <p>
+                        But look at you now though! Out there in the UK, building yourself into a literal beast, chasing your dreams, making moves. I'm so damn proud of you man, even if I don't say it enough. From that skinny kid to the absolute unit you are now - that's all you. That dedication, that grind, that's ALL you bro.
+                    </p>
+
+                    <p>
+                        The miles between us don't mean shit. You're still my brother. Still the same Murga who'd have my back no matter what. Distance can't change that. Nothing can.
+                    </p>
+
+                    <p>
+                        And yo, your drunk English? Still legendary. Still makes me laugh just thinking about it. 😂
+                    </p>
+
+                    <p class="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent pt-4">
+                        I miss doing all those stupid things with you bro. I really do.
+                    </p>
+
+                    <p class="text-gray-400 italic">
+                        But this isn't goodbye or anything sappy like that. This is just me saying... you matter. You've always mattered. And I can't wait for the day we're back doing dumb stuff together again.
+                    </p>
+
+                    <div class="border-t border-gray-700 mt-8 pt-8 flex items-center justify-between">
+                        <div>
+                            <p class="text-2xl font-bold text-purple-400">Happy Birthday Murga! 🎂</p>
+                            <p class="text-gray-400 mt-2">Make it count. Make it legendary. Just like you.</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold text-gray-300">Forever your bro,</p>
+                            <p class="text-3xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mt-2">Kalon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative Quote Mark -->
+                <div class="absolute bottom-8 right-8 text-purple-500/20 text-8xl font-serif transform rotate-180">"</div>
+            </div>
+
+            <!-- Floating Hearts -->
+            <div class="flex justify-center gap-4 mt-12 text-4xl scroll-item" data-scroll-speed="0.6">
+                <span class="inline-block animate-float" style="animation-delay: 0s;">💙</span>
+                <span class="inline-block animate-float" style="animation-delay: 0.3s;">💜</span>
+                <span class="inline-block animate-float" style="animation-delay: 0.6s;">❤️</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+// ========================================
+// CUSTOM CURSOR FUNCTIONALITY
+// ========================================
+const cursor = document.getElementById('custom-cursor');
+let mouseX = 0;
+let mouseY = 0;
+let cursorX = 0;
+let cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+// Smooth cursor follow
+function updateCursor() {
+    cursorX += (mouseX - cursorX) * 0.2;
+    cursorY += (mouseY - cursorY) * 0.2;
+    
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    
+    requestAnimationFrame(updateCursor);
+}
+updateCursor();
+
+// Cursor click effect
+document.addEventListener('mousedown', () => {
+    cursor.classList.add('clicked');
+    setTimeout(() => cursor.classList.remove('clicked'), 200);
+});
+
+// ========================================
+// CLICK EFFECTS - RIPPLES AND EMOJIS
+// ========================================
+const clickEmojis = ['💥', '✨', '🎉', '🎊', '⭐', '💫', '🌟', '🔥', '💪', '🎂'];
+const clickEffectsContainer = document.getElementById('click-effects');
+const clickSound = document.getElementById('click-sound');
+
+document.addEventListener('click', (e) => {
+    // Play water droplet sound
+    clickSound.currentTime = 0;
+    clickSound.volume = 0.3; // 30% volume so it's not too loud
+    clickSound.play().catch(err => console.log('Click sound failed:', err));
+    
+    // Create ripple effect
+    const ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = (e.clientX - 50) + 'px';
+    ripple.style.top = (e.clientY - 50) + 'px';
+    ripple.style.borderColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    clickEffectsContainer.appendChild(ripple);
+    
+    setTimeout(() => ripple.remove(), 800);
+    
+    // Create random emoji
+    const emoji = document.createElement('div');
+    emoji.className = 'click-emoji';
+    emoji.textContent = clickEmojis[Math.floor(Math.random() * clickEmojis.length)];
+    emoji.style.left = e.clientX + 'px';
+    emoji.style.top = e.clientY + 'px';
+    clickEffectsContainer.appendChild(emoji);
+    
+    setTimeout(() => emoji.remove(), 1500);
+});
+
+// ========================================
+// SCROLL PROGRESS BAR
+// ========================================
+function updateScrollProgress() {
+    const scrollProgress = document.getElementById('scroll-progress');
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (window.scrollY / scrollHeight) * 100;
+    scrollProgress.style.width = scrolled + '%';
+}
+
+window.addEventListener('scroll', updateScrollProgress);
+
+// ========================================
+// INTENSE 3D SCROLL EFFECTS
+// ========================================
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+function update3DScroll() {
+    const scrollY = window.scrollY;
+    const sections = document.querySelectorAll('.scroll-section');
+    
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        const windowHeight = window.innerHeight;
+        
+        const scrollProgress = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
+        
+        if (scrollProgress > 0 && scrollProgress < 1) {
+            const rotationX = (scrollProgress - 0.5) * 15;
+            const rotationY = (scrollProgress - 0.5) * 10;
+            const scale = 0.95 + (Math.min(scrollProgress, 1 - scrollProgress) * 0.1);
+            
+            section.style.transform = `perspective(2000px) rotateX(${-rotationX}deg) rotateY(${rotationY}deg) scale(${scale})`;
+            section.style.opacity = Math.max(0.6, 1 - Math.abs(scrollProgress - 0.5) * 0.5);
+        }
+        
+        const items = section.querySelectorAll('.scroll-item');
+        items.forEach((item, itemIndex) => {
+            const speed = parseFloat(item.getAttribute('data-scroll-speed')) || 0.5;
+            const offset = (scrollY - section.offsetTop) * speed;
+            const itemProgress = (windowHeight - rect.top) / windowHeight;
+            
+            if (itemProgress > 0 && itemProgress < 1.5) {
+                const translateY = offset * 0.3;
+                const translateX = Math.sin(itemProgress * Math.PI) * 20;
+                const rotation = (itemProgress - 0.5) * 5;
+                const itemScale = 0.8 + (itemProgress * 0.3);
+                
+                item.style.transform = `translateY(${translateY}px) translateX(${translateX}px) rotateZ(${rotation}deg) scale(${Math.min(itemScale, 1.1)})`;
+                item.style.opacity = Math.min(itemProgress * 1.5, 1);
+            }
+        });
+    });
+    
+    ticking = false;
+}
+
+function requestTick() {
+    if (!ticking) {
+        requestAnimationFrame(update3DScroll);
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', requestTick);
+
+// ========================================
+// 3D TILT EFFECT FOR CARDS
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px) scale(1.05)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) scale(1)';
+        });
+    });
+});
+
+// ========================================
+// CONFETTI SYSTEM
+// ========================================
+function createConfetti() {
+    const colors = ['#ff006e', '#fb5607', '#ffbe0b', '#8338ec', '#3a86ff'];
+    const confettiCount = 100;
+    const container = document.getElementById('confetti-container');
+    
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        confetti.style.animation = `fall ${confetti.style.animationDuration} linear ${confetti.style.animationDelay} infinite`;
+        container.appendChild(confetti);
+    }
+}
+
+// ========================================
+// FLOATING PARTICLES BACKGROUND
+// ========================================
+function createParticles() {
+    const container = document.getElementById('particles-container');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.backgroundColor = `rgba(${Math.random() * 255}, ${Math.random() * 255}, 255, 0.5)`;
+        particle.style.animation = `float ${Math.random() * 3 + 2}s ease-in-out infinite`;
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(particle);
+    }
+}
+
+// ========================================
+// PHOTO GALLERY DATA
+// ========================================
+const photos = [
+    { 
+        image: 'body.jpeg',  // Replace with your photo filename
+        emoji: '🏋️',  // Backup emoji if image doesn't load
+        label: 'Gym Beast Mode', 
+        color: 'from-red-500 to-orange-500' 
+    },
+    { 
+        image: 'swag.jpeg', 
+        emoji: '🎉',
+        label: 'Swag', 
+        color: 'from-purple-500 to-pink-500' 
+    },
+    { 
+        image: 'hbd.jpeg', 
+        emoji: '🍻',
+        label: 'Epic Nights', 
+        color: 'from-blue-500 to-cyan-500' 
+    },
+    { 
+        image: 'Old mrigyan.jpeg', 
+        emoji: '💪',
+        label: 'Gains Train', 
+        color: 'from-green-500 to-emerald-500' 
+    },
+    { 
+        image: 'why.jpeg', 
+        emoji: '🌍',
+        label: 'Always on Adventures', 
+        color: 'from-yellow-500 to-orange-500' 
+    },
+    { 
+        image: 'cutie.jpeg', 
+        emoji: '👑',
+        label: 'King Status', 
+        color: 'from-purple-600 to-pink-600' 
+    },
+    { 
+        image: 'old kanye.jpeg', 
+        emoji: '🔥',
+        label: 'On Fire', 
+        color: 'from-orange-500 to-red-600' 
+    },
+    { 
+        image: 'serious.jpeg', 
+        emoji: '⚡',
+        label: 'Unstoppable', 
+        color: 'from-cyan-500 to-blue-600' 
+    },
+    { 
+        image: 'real.webp', 
+        emoji: '🎯',
+        label: 'Real Murga', 
+        color: 'from-pink-500 to-purple-600' 
+    }
+];
+
+function initPhotoGallery() {
+    const photoGrid = document.getElementById('photo-grid');
+    photos.forEach((photo, index) => {
+        const card = document.createElement('div');
+        card.className = 'scroll-item group relative aspect-square rounded-2xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-110 hover:rotate-3 hover:z-10';
+        card.setAttribute('data-scroll-speed', 0.3 + (index * 0.05));
+        
+        // Check if image property exists, otherwise use emoji
+        if (photo.image) {
+            card.innerHTML = `
+                <div class="absolute inset-0 bg-gradient-to-br ${photo.color} opacity-20"></div>
+                <img src="${photo.image}" alt="${photo.label}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="absolute inset-0 hidden flex-col items-center justify-center p-6 bg-gradient-to-br ${photo.color} opacity-80 group-hover:opacity-100 transition-opacity">
+                    <span class="text-6xl mb-4 transform group-hover:scale-125 transition-transform">${photo.emoji}</span>
+                    <p class="text-white font-bold text-lg text-center">${photo.label}</p>
+                </div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <p class="text-white font-bold text-lg text-center">${photo.label}</p>
+                </div>
+            `;
+        } else {
+            // Fallback to emoji if no image
+            card.innerHTML = `
+                <div class="absolute inset-0 bg-gradient-to-br ${photo.color} opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative h-full flex flex-col items-center justify-center p-6">
+                    <span class="text-6xl mb-4 transform group-hover:scale-125 transition-transform">${photo.emoji}</span>
+                    <p class="text-white font-bold text-lg text-center">${photo.label}</p>
+                </div>
+            `;
+        }
+        
+        photoGrid.appendChild(card);
+    });
+}
+
+// ========================================
+// SURPRISE MODAL WITH FIREWORKS
+// ========================================
+const secrets = [
+    "You're not just strong in body, but in spirit. That's what makes you truly legendary! 💪✨",
+    "We bet you £100 you can't do 100 push-ups right now. Prove us wrong, champ! 😏💰",
+    "Achievement Unlocked: 'The One Who Made It' 🏆 From dreams to reality, you did it!",
+    "Fun fact: Every time you lift, an angel gets its wings. Keep making angels, bro! 😇💪"
+];
+
+let secretsRevealed = [];
+
+function revealSecret(index) {
+    if (secretsRevealed.includes(index)) {
+        showSurprise("You already found this secret! But here's a bonus: You're AWESOME! 🌟");
+    } else {
+        secretsRevealed.push(index);
+        showSurprise(secrets[index - 1] || secrets[Math.floor(Math.random() * secrets.length)]);
+    }
+}
+
+function showSurprise(text) {
+    const modal = document.getElementById('surprise-modal');
+    const modalContent = document.getElementById('modal-content');
+    const surpriseText = document.getElementById('surprise-text');
+    const modalFireworks = document.getElementById('modal-fireworks');
+    const surpriseSound = document.getElementById('surprise-sound');
+    
+    // Play surprise sound
+    surpriseSound.currentTime = 0; // Reset to start
+    surpriseSound.play().catch(e => console.log('Sound play failed:', e));
+    
+    surpriseText.textContent = text;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    
+    modalContent.style.transform = 'scale(0) rotate(-180deg)';
+    modalContent.style.opacity = '0';
+    
+    setTimeout(() => {
+        modalContent.style.transition = 'all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        modalContent.style.transform = 'scale(1) rotate(0deg)';
+        modalContent.style.opacity = '1';
+    }, 10);
+    
+    createModalFireworks(modalFireworks);
+    
+    setTimeout(() => {
+        createMiniBurst();
+    }, 300);
+    
+    const sparkleInterval = setInterval(() => {
+        if (modal.classList.contains('hidden')) {
+            clearInterval(sparkleInterval);
+        } else {
+            createModalSparkle(modalFireworks);
+        }
+    }, 200);
+}
+
+function closeSurprise() {
+    const modal = document.getElementById('surprise-modal');
+    const modalContent = document.getElementById('modal-content');
+    const modalFireworks = document.getElementById('modal-fireworks');
+    
+    modalContent.style.transform = 'scale(0) rotate(180deg)';
+    modalContent.style.opacity = '0';
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modalContent.style.transform = '';
+        modalContent.style.opacity = '';
+        modalFireworks.innerHTML = '';
+    }, 400);
+}
+
+function createModalFireworks(container) {
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            createModalExplosion(container, x, y);
+        }, i * 300);
+    }
+}
+
+function createModalExplosion(container, x, y) {
+    const colors = ['#ff006e', '#fb5607', '#ffbe0b', '#8338ec', '#3a86ff'];
+    
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = '8px';
+        particle.style.height = '8px';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.borderRadius = '50%';
+        particle.style.left = x + '%';
+        particle.style.top = y + '%';
+        particle.style.pointerEvents = 'none';
+        
+        const angle = (Math.PI * 2 * i) / 20;
+        const velocity = 50 + Math.random() * 100;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        particle.style.animation = 'firework 1.2s ease-out forwards';
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 1200);
+    }
+}
+
+function createModalSparkle(container) {
+    const sparkle = document.createElement('div');
+    sparkle.textContent = ['✨', '⭐', '💫', '🌟'][Math.floor(Math.random() * 4)];
+    sparkle.style.position = 'absolute';
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+    sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.animation = 'float-up 2s ease-out forwards';
+    
+    container.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 2000);
+}
+
+function createMiniBurst() {
+    const colors = ['#ff006e', '#fb5607', '#ffbe0b', '#8338ec', '#3a86ff'];
+    for (let i = 0; i < 40; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'fixed';
+        particle.style.width = '12px';
+        particle.style.height = '12px';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.borderRadius = '50%';
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        particle.style.pointerEvents = 'none';
+        particle.style.zIndex = '99999';
+        
+        const angle = (Math.PI * 2 * i) / 40;
+        const velocity = 150 + Math.random() * 150;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        particle.style.animation = 'firework 1.5s ease-out forwards';
+        
+        document.body.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 1500);
+    }
+}
+
+// ========================================
+// FIREWORKS CELEBRATION
+// ========================================
+function celebrateWithFireworks() {
+    for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * (window.innerHeight / 2);
+            createFirework(x, y);
+        }, i * 400);
+    }
+}
+
+function createFirework(x, y) {
+    const colors = ['#ff006e', '#fb5607', '#ffbe0b', '#8338ec', '#3a86ff', '#06ffa5'];
+    const particleCount = 60;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.position = 'fixed';
+        particle.style.width = '10px';
+        particle.style.height = '10px';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.borderRadius = '50%';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.pointerEvents = 'none';
+        particle.style.zIndex = '9999';
+        particle.style.boxShadow = `0 0 10px ${colors[Math.floor(Math.random() * colors.length)]}`;
+        
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const velocity = 200 + Math.random() * 200;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        particle.style.animation = 'firework 2s ease-out forwards';
+        
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 2000);
+    }
+}
+
+// ========================================
+// KONAMI CODE EASTER EGG
+// ========================================
+let konamiCode = [];
+const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.key);
+    konamiCode = konamiCode.slice(-10);
+    
+    if (konamiCode.join(',') === konamiPattern.join(',')) {
+        showSurprise("🎮 KONAMI CODE ACTIVATED! You're a true gamer, Murga! Legendary status: CONFIRMED! 🏆");
+        celebrateWithFireworks();
+    }
+});
+
+// ========================================
+// MUSIC PLAYER FUNCTIONALITY
+// ========================================
+let isPlaying = false;
+const music = document.getElementById('birthday-music');
+const musicToggle = document.getElementById('music-toggle');
+const lyricsBox = document.getElementById('lyrics-box');
+
+function toggleMusic() {
+    if (isPlaying) {
+        music.pause();
+        musicToggle.classList.remove('playing');
+        lyricsBox.classList.add('hidden');
+        isPlaying = false;
+    } else {
+        music.play().catch(e => {
+            console.log('Music play failed:', e);
+        });
+        musicToggle.classList.add('playing');
+        lyricsBox.classList.remove('hidden');
+        isPlaying = true;
+    }
+}
+
+function toggleLyrics() {
+    lyricsBox.classList.toggle('hidden');
+}
+
+// Auto-play attempt on first user interaction
+let hasInteracted = false;
+document.addEventListener('click', () => {
+    if (!hasInteracted) {
+        hasInteracted = true;
+        // Optional: Auto-play music on first click
+        // Uncomment the next line if you want music to start automatically
+        // toggleMusic();
+    }
+}, { once: true });
+
+// ========================================
+// INITIALIZE ALL FEATURES ON LOAD
+// ========================================
+window.addEventListener('load', () => {
+    createConfetti();
+    createParticles();
+    initPhotoGallery();
+    updateScrollProgress();
+    update3DScroll();
+    
+    setTimeout(() => {
+        requestTick();
+    }, 100);
+});
+
+window.addEventListener('scroll', () => {
+    updateScrollProgress();
+    requestTick();
+});
+    </script>
+</body>
+</html>
